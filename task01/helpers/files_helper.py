@@ -4,7 +4,7 @@ import shutil
 FILE_NAME_MAX_LENGTH = 250
 FOLDER_NAME_FOR_NO_EXTENTION_FILES = "no_extension"
 
-def is_file_copyable(file_path):
+def is_file_copyable(file_path) -> bool:
     try:
         if not os.access(file_path, os.R_OK):
             return False
@@ -53,5 +53,4 @@ def copy_file_to_extension_dir(file_path, destination_path, source_path) -> list
             
     except Exception as e:
         errors_list.append(f"Error copying file '{file_path}': {e}")
-        pass
     return errors_list
